@@ -16,6 +16,7 @@ const router = (app) => {
   app.get('/page1', controllers.page1);
   app.get('/page2', controllers.page2);
   app.get('/page3', controllers.page3);
+  app.get('/page4', controllers.page4);
   app.get('/getName', controllers.getName);
   app.get('/findByName', controllers.searchName);
 
@@ -23,15 +24,18 @@ const router = (app) => {
   // For example www.webpage.com
   app.get('/', controllers.index);
 
-  // catch for any other GET request. The * means anything
-  app.get('/*', controllers.notFound);
-
   // When someone POSTS to /setName, call controllers.setName
   // For example, a form submission to www.webpage.com/setName
   app.post('/setName', controllers.setName);
 
   // When someone POSTS to /updateLast, call controllers.updateLast
   app.post('/updateLast', controllers.updateLast);
+
+  app.post('/createDog', controllers.setDog);
+  app.get('/findDog', controllers.searchDogByName);
+
+  // catch for any other GET request. The * means anything
+  app.get('/*', controllers.notFound);
 };
 
 // export the router function
